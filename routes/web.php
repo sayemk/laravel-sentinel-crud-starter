@@ -30,3 +30,7 @@ Route::get('/', ['uses' => 'HomeController@home']);
         Route::post('role/check', ['uses' => 'RoleController@check']);
         
  });
+
+Route::group(['middleware' => ['web', 'auth', 'permission']], function () {
+	Route::resource('admin/cms', 'Admin\\CMSController');
+});

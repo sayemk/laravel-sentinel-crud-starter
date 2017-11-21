@@ -41,6 +41,14 @@
           </ul>
         </li>
       @endif
+      @if (Sentinel::getUser()->hasAnyAccess(['cms.*']))
+          <li><a><i class="fa fa-cog"></i> CMS <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+              <li><a href="{{route('cms.index')}}">All Posts</a></li>
+              <li><a href="{{route('cms.create')}}">New Post</a></li>
+            </ul>
+          </li>
+      @endif
         <!-- <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
             <li><a href="form.html">General Form</a></li>
